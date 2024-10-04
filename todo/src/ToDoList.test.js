@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import TodoList from './ToDoList';
+import TodoList from './TodoList';
 
 describe('TodoList Component', () => {
   test('renders without crashing', () => {
@@ -56,6 +56,7 @@ describe('TodoList Component', () => {
   
     let variants = [];
     todoItems.forEach((item) => {
+      // eslint-disable-next-line testing-library/no-node-access
       const input = item.querySelector('input');
       const dueDate = input.getAttribute('value'); // Assuming due date is stored in a data attribute
       const expectedVariant = getVariant(dueDate);
@@ -64,6 +65,7 @@ describe('TodoList Component', () => {
     });
 
     todoTab.forEach((item, index) => {
+        // eslint-disable-next-line testing-library/no-node-access
         const anchor = item.querySelector('a');
         expect(anchor).toHaveClass(`list-group-item-${variants[index]}`);
         
