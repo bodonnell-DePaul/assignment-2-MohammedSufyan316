@@ -1,3 +1,6 @@
+/* Name: Mohammed Sufyan Khan Osmani
+   ID: 2136370
+   email: mosmani1@depaul.edu **/
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React, { useState } from 'react';
@@ -22,7 +25,7 @@ const TodoList = () => {
 
     return (
         <Container>
-            <h1>Assignment 2: ToDo List</h1>
+            <h1>Assignment 2: ToDo List</h1> 
 
             <Form>
                 <Row>
