@@ -26,7 +26,7 @@ const TodoList = () => {
 
     return (
         <Container>
-            <h1>Assignment 2: ToDo List</h1>
+            <h1 className="title">Assignment 2: Mohammed's ToDo List</h1>
 
             <Tab.Container id="todo-list" defaultActiveKey={`#todo0`}>
                 <Row>
