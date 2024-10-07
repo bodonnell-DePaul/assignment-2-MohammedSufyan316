@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, ListGroup, Tab } from 'react-bootstrap';
 import './App.css';
 import todos from './todoItems';
+import './TodoList.css';
 
 const TodoList = () => {
 
@@ -25,44 +26,42 @@ const TodoList = () => {
 
     return (
         <Container>
-            <h1>Assignment 2: ToDo List</h1> 
-
-            <Form>
-                <Row>
-                    <Col>
-                        <Form.Group controlId="todoTitle">
-                            <Form.Label>ToDo Item</Form.Label>
-                            <Form.Control type="text" placeholder="Add todo item" />
-                        </Form.Group>
-                    </Col>
-                    <Col>
-                        <Form.Group controlId="todoDueDate">
-                            <Form.Label>Due Date</Form.Label>
-                            <Form.Control type="date" />
-                        </Form.Group>
-                    </Col>
-                </Row>
-                <Button variant="primary" type="submit" className="mt-3">Add Todo</Button>
-            </Form>
+            <h1>Assignment 2: ToDo List</h1>
 
             <Tab.Container id="todo-list" defaultActiveKey={`#todo0`}>
                 <Row>
-                    <Col sm={4}>
+                    <Col>
+                        <Form className="todo-form">
+  
+                                    <Form.Group controlId="todoTitle">
+                                        <Form.Label>ToDo Item</Form.Label>
+                                        <Form.Control type="text" placeholder="Add todo item" />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="todoDueDate">
+                                        <Form.Label>Due Date</Form.Label>
+                                        <Form.Control type="date" />
+                                    </Form.Group>
+                           
+                            <Button variant="primary" type="submit">Add Todo</Button>
+                        </Form>
+                    </Col>
+                    <Col>
                         <ListGroup role="tablist">
                             {todoItems.map((todo, index) => (
                                 <ListGroup.Item
                                     key={index}
                                     action
                                     href={`#todo${index}`}
-                                    variant={getColorVariant(todo.dueDate)} 
-                                    className={`list-group-item-${getColorVariant(todo.dueDate)}`} 
+                                    variant={getColorVariant(todo.dueDate)}
+                                    className={`list-group-item-${getColorVariant(todo.dueDate)}`}
                                 >
                                     {todo.title}
                                 </ListGroup.Item>
                             ))}
                         </ListGroup>
                     </Col>
-                    <Col sm={8}>
+                    <Col>
                         <Tab.Content>
                             {todoItems.map((todo, index) => (
                                 <Tab.Pane key={index} eventKey={`#todo${index}`}>
@@ -76,7 +75,7 @@ const TodoList = () => {
                 </Row>
             </Tab.Container>
         </Container>
-  );
+    );
 }
 
 export default TodoList;
